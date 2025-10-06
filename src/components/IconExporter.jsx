@@ -29,7 +29,11 @@ const IconExporter = () => {
     <>
       <div
         ref={iconRef}
-        style={{ width: size, height: size, background: "transparent" }}
+        style={{
+          width: size,
+          height: size,
+          background: "transparent",
+        }}
       >
         <IconComponent />
       </div>

@@ -11,11 +11,19 @@ const IconExporter = () => {
     if (iconRef.current === null) return;
 
     try {
+      // Temporarily remove border for export
+      const originalBorder = iconRef.current.style.border;
+      iconRef.current.style.border = "none";
+
       const dataUrl = await htmlToImage.toPng(iconRef.current, {
         // Set the pixel dimensions for the exported PNG
         width: width,
         height: height,
+        skipAutoScale: true, // Disable automatic scaling
       });
+
+      // Restore the original border
+      iconRef.current.style.border = originalBorder;
 
       const link = document.createElement("a");
       link.download = `custom_icon_${width}x${height}.png`;
@@ -58,13 +66,14 @@ const IconExporter = () => {
           width: width,
           height: height,
           background: "transparent",
-          border: "1px dashed #ccc",
-          marginBottom: "20px",
+          border: "2px dashed #ccc",
         }}
       >
         <IconComponent />
       </div>
-      <button onClick={downloadIcon}>Export PNG for Atlas</button>
+      <div style={{ marginTop: "20px" }}>
+        <button onClick={downloadIcon}>Export PNG for Atlas</button>
+      </div>
     </>
   );
 };

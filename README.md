@@ -100,7 +100,7 @@ Contributions are welcome! If you have suggestions for improvements, such as add
 
 ## 📄 License
 
-This project is licensed under the **[MIT License]** - see the `LICENSE.md` file (if you have one) for details.
+This project is licensed under the **[MIT License]** - see the `LICENSE.txt` file for details.
 
 ---
 

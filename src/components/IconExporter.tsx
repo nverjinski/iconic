@@ -2,6 +2,36 @@ import { useRef, useState, ChangeEvent } from "react";
 import * as htmlToImage from "html-to-image";
 // @ts-ignore
 import IconComponent from "../IconComponent/IconComponent";
+import styled from "styled-components";
+
+const Controls = styled.div`
+  margin-bottom: 20px;
+`;
+
+const FieldLabel = styled.label`
+  display: block;
+  margin-bottom: 10px;
+
+  &:first-child {
+    margin-bottom: 5px;
+  }
+`;
+
+const NumberInput = styled.input`
+  margin-left: 10px;
+  padding: 5px;
+`;
+
+const IconCanvas = styled.div<{ widthPx: number; heightPx: number }>`
+  width: ${({ widthPx }) => `${widthPx}px`};
+  height: ${({ heightPx }) => `${heightPx}px`};
+  background: transparent;
+  border: 2px dashed #ccc;
+`;
+
+const Actions = styled.div`
+  margin-top: 20px;
+`;
 
 const IconExporter = () => {
   const iconRef = useRef<HTMLDivElement>(null);
@@ -45,44 +75,34 @@ const IconExporter = () => {
 
   return (
     <>
-      <div style={{ marginBottom: "20px" }}>
-        <label style={{ display: "block", marginBottom: "5px" }}>
+      <Controls>
+        <FieldLabel>
           Width:
-          <input
+          <NumberInput
             type="number"
             value={width}
             onChange={handleWidthChange}
             min="1"
             max="2048"
-            style={{ marginLeft: "10px", padding: "5px" }}
           />
-        </label>
-        <label style={{ display: "block", marginBottom: "10px" }}>
+        </FieldLabel>
+        <FieldLabel>
           Height:
-          <input
+          <NumberInput
             type="number"
             value={height}
             onChange={handleHeightChange}
             min="1"
             max="2048"
-            style={{ marginLeft: "10px", padding: "5px" }}
           />
-        </label>
-      </div>
-      <div
-        ref={iconRef}
-        style={{
-          width: width,
-          height: height,
-          background: "transparent",
-          border: "2px dashed #ccc",
-        }}
-      >
+        </FieldLabel>
+      </Controls>
+      <IconCanvas ref={iconRef} widthPx={width} heightPx={height}>
         <IconComponent />
-      </div>
-      <div style={{ marginTop: "20px" }}>
+      </IconCanvas>
+      <Actions>
         <button onClick={downloadIcon}>Export PNG for Atlas</button>
-      </div>
+      </Actions>
     </>
   );
 };

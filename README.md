@@ -11,6 +11,10 @@ A simple, ready-to-use React application designed for quickly prototyping and ex
 - **Isolated Development:** All core logic is pre-wired, allowing developers to focus purely on the component's design in a single file.
 - **Fast Development Server:** Get up and running immediately with a standard Vite/React development setup.
 
+## Example
+
+![App Example](src/assets/example.png)
+
 ---
 
 ## 🚀 Getting Started

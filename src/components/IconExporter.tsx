@@ -33,6 +33,21 @@ const Actions = styled.div`
   margin-top: 20px;
 `;
 
+const ExportButton = styled.button`
+  border: 1px solid #888;
+  padding: 8px 12px;
+  background: #f3f4f6; /* light gray */
+  color: #333;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 120ms ease, border-color 120ms ease;
+
+  &:hover {
+    background: #e5e7eb; /* slightly darker on hover */
+    border-color: #666;
+  }
+`;
+
 const IconExporter = () => {
   const iconRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState<number>(512);
@@ -101,7 +116,7 @@ const IconExporter = () => {
         <IconComponent />
       </IconCanvas>
       <Actions>
-        <button onClick={downloadIcon}>Export PNG for Atlas</button>
+        <ExportButton onClick={downloadIcon}>Export as PNG</ExportButton>
       </Actions>
     </>
   );

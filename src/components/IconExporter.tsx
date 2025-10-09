@@ -1,13 +1,14 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState, ChangeEvent } from "react";
 import * as htmlToImage from "html-to-image";
+// @ts-ignore
 import IconComponent from "../IconComponent/IconComponent";
 
 const IconExporter = () => {
-  const iconRef = useRef(null);
-  const [width, setWidth] = useState(512);
-  const [height, setHeight] = useState(512);
+  const iconRef = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState<number>(512);
+  const [height, setHeight] = useState<number>(512);
 
-  const downloadIcon = async () => {
+  const downloadIcon = async (): Promise<void> => {
     if (iconRef.current === null) return;
 
     try {
@@ -34,6 +35,14 @@ const IconExporter = () => {
     }
   };
 
+  const handleWidthChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    setWidth(parseInt(e.target.value) || 512);
+  };
+
+  const handleHeightChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    setHeight(parseInt(e.target.value) || 512);
+  };
+
   return (
     <>
       <div style={{ marginBottom: "20px" }}>
@@ -42,7 +51,7 @@ const IconExporter = () => {
           <input
             type="number"
             value={width}
-            onChange={(e) => setWidth(parseInt(e.target.value) || 512)}
+            onChange={handleWidthChange}
             min="1"
             max="2048"
             style={{ marginLeft: "10px", padding: "5px" }}
@@ -53,7 +62,7 @@ const IconExporter = () => {
           <input
             type="number"
             value={height}
-            onChange={(e) => setHeight(parseInt(e.target.value) || 512)}
+            onChange={handleHeightChange}
             min="1"
             max="2048"
             style={{ marginLeft: "10px", padding: "5px" }}
@@ -77,4 +86,5 @@ const IconExporter = () => {
     </>
   );
 };
+
 export default IconExporter;

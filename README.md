@@ -1,12 +1,12 @@
 # 🖼️ React Component to PNG Utility
 
-A simple, ready-to-use React application designed for quickly prototyping and exporting single components as high-resolution 512x512 PNG images. Perfect for generating icons, map markers, or small visual assets directly from JSX/CSS.
+A simple, ready-to-use React application designed for quickly prototyping and exporting single components as high-resolution PNG images. Perfect for generating icons, map markers, or small visual assets of variable, user defined size directly from JSX/CSS.
 
 ---
 
 ## ✨ Features
 
-- **Fixed 512x512 Canvas:** Develop your component within a predefined, constrained space, ensuring consistency for icon generation.
+- **Defined Canvas:** Develop your component within a predefined, constrained space, ensuring consistency for icon generation.
 - **One-Click PNG Export:** Utilizes the **`html-to-image`** library to accurately capture the rendered component and download it as a PNG file.
 - **Isolated Development:** All core logic is pre-wired, allowing developers to focus purely on the component's design in a single file.
 - **Fast Development Server:** Get up and running immediately with a standard Vite/React development setup.
@@ -52,8 +52,8 @@ The entire application is set up to focus development on a single file: **`IconC
 
 1.  **Open the project** in your code editor.
 2.  Navigate to the designated component file (e.g., `src/IconComponent/IconComponent.jsx`).
-3.  **Define your component** within this file. The component will automatically render inside the fixed 512x512 container in the browser.
-4.  You can use styled-components, inline styles, or the provided `IconComponent.css` file
+3.  **Define your component** within this file. The component will automatically render inside the fixed container in the browser.
+4.  You can use styled-components, inline styles, or the provided `IconComponent.css` file to style your icon.
 
     ```jsx
     // src/IconComponent.jsx
@@ -78,7 +78,7 @@ The entire application is set up to focus development on a single file: **`IconC
     export default IconComponent;
     ```
 
-5.  When you are satisfied with the visual result, click the **"Download PNG"** button in the browser to save the component as a 512x512 PNG file.
+5.  When you are satisfied with the visual result, click the **"Download PNG"** button in the browser to save the component as a PNG file.
 
 ---
 

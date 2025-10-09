@@ -19,7 +19,7 @@ const IconExporter = () => {
         // Set the pixel dimensions for the exported PNG
         width: width,
         height: height,
-        skipAutoScale: true, // Disable automatic scaling
+        pixelRatio: 1,
       });
 
       // Restore the original border
